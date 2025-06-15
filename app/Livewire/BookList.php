@@ -9,6 +9,8 @@ use Livewire\Component;
 
 class BookList extends Component
 {
+    public string $term = '';
+
     public function delete(Book $book): void
     {
         $book->delete();
@@ -18,8 +20,13 @@ class BookList extends Component
     #[Title('Book List - Home')]
     public function render()
     {
+        if ($this->term) {
+            $books = Book::query()->where('title', 'like', "%{$this->term}%")->get();
+        } else {
+            $books = Book::all();
+        }
         return view('livewire.book-list', [
-            'books' => Book::all(),
+            'books' => $books,
         ]);
     }
 }
