@@ -9,6 +9,11 @@ use Livewire\Component;
 
 class BookList extends Component
 {
+    public function delete(Book $book): void
+    {
+        $book->delete();
+    }
+
     #[Layout('components.layouts.booklist')]
     #[Title('Book List - Home')]
     public function render()
