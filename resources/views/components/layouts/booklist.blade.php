@@ -21,7 +21,7 @@
     <flux:navbar class="-mb-px max-lg:hidden">
         <flux:navbar.item icon="home" href="/" current>Home</flux:navbar.item>
         @auth
-        <flux:navbar.item icon="inbox" href="/books/create">Add a Book</flux:navbar.item>
+        <flux:navbar.item icon="book-open" href="/books/create">Add a Book</flux:navbar.item>
         @endauth
 
         <flux:separator vertical variant="subtle" class="my-2"/>
