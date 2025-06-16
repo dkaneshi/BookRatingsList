@@ -2,7 +2,7 @@
     <livewire:page-header subtitle="Here's a list of books..."/>
 
     <div class="flex max-w-md m-auto my-4">
-        <flux:input type="text" placeholder="Search books..." wire:model.live.debounce.300ms="term">
+        <flux:input type="text" placeholder="Search by title or author..." wire:model.live.debounce.300ms="term">
         </flux:input>
     </div>
     <ul class="list">

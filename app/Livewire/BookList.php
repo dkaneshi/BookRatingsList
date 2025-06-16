@@ -23,7 +23,10 @@ final class BookList extends Component
     public function render()
     {
         if ($this->term !== '' && $this->term !== '0') {
-            $books = Book::query()->where('title', 'like', "%{$this->term}%")->get();
+            $books = Book::query()
+                ->where('title', 'like', "%{$this->term}%")
+                ->orWhere('author', 'like', "%{$this->term}%")
+                ->get();
         } else {
             $books = Book::all();
         }
