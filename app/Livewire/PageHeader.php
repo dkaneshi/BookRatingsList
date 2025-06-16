@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class PageHeader extends Component
 {
-    public string $name = 'Dave';
+    public string $name = 'Guest';
     public string $subtitle;
 
     public function mount($subtitle): void
