@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\BookList;
 use App\Livewire\CreateBook;
 use App\Livewire\Settings\Appearance;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire;
 
 use App\Models\Book;
@@ -7,7 +9,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class BookList extends Component
+final class BookList extends Component
 {
     public string $term = '';
 
@@ -20,11 +22,12 @@ class BookList extends Component
     #[Title('Book List - Home')]
     public function render()
     {
-        if ($this->term) {
+        if ($this->term !== '' && $this->term !== '0') {
             $books = Book::query()->where('title', 'like', "%{$this->term}%")->get();
         } else {
             $books = Book::all();
         }
+
         return view('livewire.book-list', [
             'books' => $books,
         ]);

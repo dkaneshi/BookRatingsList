@@ -1,16 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class PageHeader extends Component
+final class PageHeader extends Component
 {
     public string $name;
+
     public string $subtitle;
 
-    public function mount($subtitle): void
+    public function mount(string $subtitle): void
     {
         $this->name = Auth::check() ? Auth::user()->name : 'Guest';
         $this->subtitle = $subtitle;

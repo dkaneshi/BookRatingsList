@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire;
 
 use App\Models\Book;
@@ -8,7 +10,7 @@ use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class CreateBook extends Component
+final class CreateBook extends Component
 {
     #[Validate('required|string|min:3|max:255')]
     public string $title;
@@ -29,7 +31,7 @@ class CreateBook extends Component
             'rating' => $this->rating,
         ]);
 
-        $this->redirect('/books', navigate: true);;
+        $this->redirect('/books', navigate: true);
     }
 
     #[Title('Add a Book')]
