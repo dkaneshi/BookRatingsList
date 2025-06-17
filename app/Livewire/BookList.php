@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Models\Book;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -20,7 +22,7 @@ final class BookList extends Component
 
     #[Layout('components.layouts.booklist')]
     #[Title('Book List - Home')]
-    public function render()
+    public function render(): View|Factory|\Illuminate\View\View
     {
         if ($this->term !== '' && $this->term !== '0') {
             $books = Book::query()

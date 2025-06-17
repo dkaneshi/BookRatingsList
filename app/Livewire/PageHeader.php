@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -19,7 +21,7 @@ final class PageHeader extends Component
         $this->subtitle = $subtitle;
     }
 
-    public function render()
+    public function render(): View|Factory|\Illuminate\View\View
     {
         return view('livewire.page-header');
     }

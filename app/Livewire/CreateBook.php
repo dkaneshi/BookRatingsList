@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Models\Book;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
@@ -36,7 +38,7 @@ final class CreateBook extends Component
 
     #[Title('Add a Book')]
     #[Layout('components.layouts.booklist')]
-    public function render()
+    public function render(): View|Factory|\Illuminate\View\View
     {
         return view('livewire.create-book');
     }
