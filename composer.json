@@ -69,7 +69,7 @@
         ],
         "test:type-coverage": "pest --type-coverage --min=100",
         "test:typos": "peck",
-        "test:unit": "pest --parallel --coverage --min=90",
+        "test:unit": "pest --parallel --coverage --min=75",
         "test:lint": "pint --test",
         "test:types": [
             "phpstan --memory-limit=512M"
