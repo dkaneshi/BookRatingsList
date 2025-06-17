@@ -28,6 +28,7 @@
         "pestphp/pest": "^3.8",
         "pestphp/pest-plugin-laravel": "^3.2",
         "pestphp/pest-plugin-livewire": "^3.0",
+        "pestphp/pest-plugin-type-coverage": "^3.5",
         "rector/rector": "^2.0"
     },
     "autoload": {
