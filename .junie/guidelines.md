@@ -69,7 +69,7 @@ VI. Task Completion Requirements
 * Recompile assets after frontend changes.
 * Follow all rules before marking tasks complete.
 
-VII.
+VII. Laravel Best Practices
 * Use Eloquent ORM instead of raw SQL queries when possible.
 * Implement Repository pattern for data access layer.
 * Use Laravel's built-in authentication and authorization features.
