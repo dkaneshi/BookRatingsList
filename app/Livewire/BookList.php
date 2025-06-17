@@ -7,6 +7,7 @@ namespace App\Livewire;
 use App\Models\Book;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -17,7 +18,9 @@ final class BookList extends Component
 
     public function delete(Book $book): void
     {
-        $book->delete();
+        if (Auth::check()) {
+            $book->delete();
+        }
     }
 
     #[Layout('components.layouts.booklist')]
