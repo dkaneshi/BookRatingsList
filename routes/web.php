@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', BookList::class)->name('home');
 Route::get('/books', BookList::class)->name('books.index');
-Route::get('/books/create', CreateBook::class)->name('books.create');
+Route::get('/books/create', CreateBook::class)->middleware('auth')->name('books.create');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
