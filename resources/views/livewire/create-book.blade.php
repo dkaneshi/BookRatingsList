@@ -7,9 +7,9 @@
                 <flux:field>
                     <flux:label for="title">Title</flux:label>
 
-                    <flux:input wire:model="title"/>
+                    <flux:input wire:model="form.title" id="title"/>
 
-                    <flux:error name="title"/>
+                    <flux:error name="form.title"/>
                 </flux:field>
             </div>
 
@@ -17,9 +17,9 @@
                 <flux:field>
                     <flux:label for="author">Author</flux:label>
 
-                    <flux:input wire:model="author"/>
+                    <flux:input wire:model="form.author" id="author"/>
 
-                    <flux:error name="author"/>
+                    <flux:error name="form.author"/>
                 </flux:field>
             </div>
 
@@ -27,9 +27,9 @@
                 <flux:field class="mb-4">
                     <flux:label for="rating">Rating</flux:label>
 
-                    <flux:input wire:model="rating"/>
+                    <flux:input type="number" wire:model="form.rating" id="rating"/>
 
-                    <flux:error name="rating"/>
+                    <flux:error name="form.rating"/>
                 </flux:field>
             </div>
 
