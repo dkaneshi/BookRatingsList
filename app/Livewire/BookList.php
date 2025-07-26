@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
+use App\Livewire\Actions\DeleteBookAction;
 use App\Models\Book;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -16,10 +17,10 @@ final class BookList extends Component
 {
     public string $term = '';
 
-    public function delete(Book $book): void
+    public function delete(Book $book, DeleteBookAction $action): void
     {
         if (Auth::check()) {
-            $book->delete();
+            $action->handle($book);
         }
     }
 
