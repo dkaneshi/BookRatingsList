@@ -8,7 +8,7 @@
     <ul class="list">
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach ($books as $book)
-                <a href="#" aria-label="{{ $book->title }}">
+                <a href="/books/edit/{{ $book->id }}" aria-label="{{ $book->title }}">
                     <li wire:key="{{ $book->id }}">
                         <flux:card size="sm" class="hover:bg-zinc-50 dark:hover:bg-zinc-700">
                             @auth
