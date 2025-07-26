@@ -32,9 +32,10 @@ final class BookList extends Component
             $books = Book::query()
                 ->where('title', 'like', "%{$this->term}%")
                 ->orWhere('author', 'like', "%{$this->term}%")
+                ->orderBy('title')
                 ->get();
         } else {
-            $books = Book::all();
+            $books = Book::all()->sortBy('title');
         }
 
         return view('livewire.book-list', [
