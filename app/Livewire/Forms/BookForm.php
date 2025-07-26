@@ -16,5 +16,5 @@ final class BookForm extends Form
     public string $author = '';
 
     #[Validate('required|integer|min:1|max:10', onUpdate: false)]
-    public int $rating = 1;
+    public int $rating;
 }
