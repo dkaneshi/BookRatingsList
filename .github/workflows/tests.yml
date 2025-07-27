@@ -36,7 +36,9 @@ jobs:
         run: npm i
 
       - name: Install GNU Aspell
-        run: sudo apt-get install aspell aspell-en
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aspell aspell-en
 
       - name: Add Flux Credentials Loaded From ENV
         run: composer config http-basic.composer.fluxui.dev "${{ secrets.FLUX_USERNAME }}" "${{ secrets.FLUX_LICENSE_KEY }}"
