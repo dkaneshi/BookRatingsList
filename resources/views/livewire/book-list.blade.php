@@ -16,15 +16,17 @@
                                 wire:click="delete({{ $book->id }})"
                                 aria-label="Delete book: {{ $book->title }}"
                                 wire:confirm.prompt="Are you sure you?\n\nType DELETE to confirm|DELETE"
+                                size="sm"
                                 icon="trash"
-                                alt="Delete">
+                                tooltip="Delete">
                             </flux:button>
                             <flux:button
                                 class="float-end mt-2"
                                 href="/books/edit/{{ $book->id }}"
                                 aria-label="Edit book: {{ $book->title }}"
+                                size="sm"
                                 icon="pencil"
-                                alt="Edit">
+                                tooltip="Edit">
                             </flux:button>
                         @endauth
                         <flux:heading class="flex items-center gap-2">{{ $book->title }}</flux:heading>
