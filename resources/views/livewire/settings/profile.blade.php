@@ -3,7 +3,15 @@
 
     <x-settings.layout :heading="__('Profile')" :subheading="__('Update your name and email address')">
         <form wire:submit="updateProfileInformation" class="my-6 w-full space-y-6">
-            <flux:input wire:model="name" :label="__('Name')" type="text" required autofocus autocomplete="name" />
+            <div class="grid grid-cols-2 gap-4">
+                <flux:input wire:model="first_name" :label="__('First Name')" type="text" required autofocus autocomplete="given-name" />
+                <flux:input wire:model="last_name" :label="__('Last Name')" type="text" required autocomplete="family-name" />
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <flux:input wire:model="middle_name" :label="__('Middle Name')" type="text" autocomplete="additional-name" />
+                <flux:input wire:model="suffix" :label="__('Suffix')" type="text" autocomplete="honorific-suffix" placeholder="Jr., Sr., III, etc." />
+            </div>
 
             <div>
                 <flux:input wire:model="email" :label="__('Email')" type="email" required autocomplete="email" />

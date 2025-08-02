@@ -17,7 +17,7 @@ final class PageHeader extends Component
 
     public function mount(string $subtitle): void
     {
-        $this->name = Auth::check() ? Auth::user()->name : 'Guest';
+        $this->name = Auth::check() ? Auth::user()->full_name : 'Guest';
         $this->subtitle = $subtitle;
     }
 

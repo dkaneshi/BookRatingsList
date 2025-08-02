@@ -5,16 +5,43 @@
     <x-auth-session-status class="text-center" :status="session('status')" />
 
     <form wire:submit="register" class="flex flex-col gap-6">
-        <!-- Name -->
-        <flux:input
-            wire:model="name"
-            :label="__('Name')"
-            type="text"
-            required
-            autofocus
-            autocomplete="name"
-            :placeholder="__('Full name')"
-        />
+        <!-- Name Fields -->
+        <div class="grid grid-cols-2 gap-4">
+            <flux:input
+                wire:model="first_name"
+                :label="__('First Name')"
+                type="text"
+                required
+                autofocus
+                autocomplete="given-name"
+                :placeholder="__('First name')"
+            />
+            <flux:input
+                wire:model="last_name"
+                :label="__('Last Name')"
+                type="text"
+                required
+                autocomplete="family-name"
+                :placeholder="__('Last name')"
+            />
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4">
+            <flux:input
+                wire:model="middle_name"
+                :label="__('Middle Name')"
+                type="text"
+                autocomplete="additional-name"
+                :placeholder="__('Middle name (optional)')"
+            />
+            <flux:input
+                wire:model="suffix"
+                :label="__('Suffix')"
+                type="text"
+                autocomplete="honorific-suffix"
+                :placeholder="__('Jr., Sr., III, etc. (optional)')"
+            />
+        </div>
 
         <!-- Email Address -->
         <flux:input

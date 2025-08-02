@@ -21,7 +21,10 @@ final class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'suffix',
         'email',
         'password',
     ];
@@ -37,15 +40,29 @@ final class User extends Authenticatable
     ];
 
     /**
+     * Get the user's full name
+     */
+    public function getFullNameAttribute(): string
+    {
+        $parts = array_filter([
+            $this->first_name,
+            $this->middle_name,
+            $this->last_name,
+            $this->suffix,
+        ]);
+        
+        return implode(' ', $parts);
+    }
+
+    /**
      * Get the user's initials
      */
     public function initials(): string
     {
-        return Str::of($this->name)
-            ->explode(' ')
-            ->take(2)
-            ->map(fn (string $word) => Str::substr($word, 0, 1))
-            ->implode('');
+        $firstInitial = $this->first_name ? Str::substr($this->first_name, 0, 1) : '';
+        $lastInitial = $this->last_name ? Str::substr($this->last_name, 0, 1) : '';
+        
+        return $firstInitial . $lastInitial;
     }
 
     /**
