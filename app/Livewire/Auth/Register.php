@@ -16,11 +16,11 @@ use Livewire\Component;
 final class Register extends Component
 {
     public string $first_name = '';
-    
+
     public string $middle_name = '';
-    
+
     public string $last_name = '';
-    
+
     public string $suffix = '';
 
     public string $email = '';

@@ -50,7 +50,7 @@ final class User extends Authenticatable
             $this->last_name,
             $this->suffix,
         ]);
-        
+
         return implode(' ', $parts);
     }
 
@@ -61,8 +61,8 @@ final class User extends Authenticatable
     {
         $firstInitial = $this->first_name ? Str::substr($this->first_name, 0, 1) : '';
         $lastInitial = $this->last_name ? Str::substr($this->last_name, 0, 1) : '';
-        
-        return $firstInitial . $lastInitial;
+
+        return $firstInitial.$lastInitial;
     }
 
     /**

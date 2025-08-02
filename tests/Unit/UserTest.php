@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 test('user can be created with separated name fields', function (): void {
     $user = User::factory()->create([
