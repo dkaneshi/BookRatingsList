@@ -30,7 +30,7 @@
                             </flux:button>
                         @endauth
                         <flux:heading class="flex items-center gap-2">{{ $book->title }}</flux:heading>
-                        <flux:text class="mt-2">{{ $book->author }}</flux:text>
+                        <flux:text class="mt-2">{{ $book->authors->pluck('name')->join(', ') }}</flux:text>
                         <flux:text>Rating: {{ $book->rating }}/10</flux:text>
                     </flux:card>
                 </li>

@@ -20,6 +20,7 @@
 
     <flux:navbar class="-mb-px max-lg:hidden">
         <flux:navbar.item icon="home" href="/">Home</flux:navbar.item>
+        <flux:navbar.item icon="users" href="/authors">Authors</flux:navbar.item>
         @auth
         <flux:navbar.item icon="book-open" href="/books/create">Add a Book</flux:navbar.item>
         @endauth
@@ -94,6 +95,7 @@
 
     <flux:navlist variant="outline">
         <flux:navlist.item icon="home" href="/books" current>Home</flux:navlist.item>
+        <flux:navlist.item icon="users" href="/authors">Authors</flux:navlist.item>
         <flux:navlist.item icon="inbox" href="/books/create">Add a Book</flux:navlist.item>
     </flux:navlist>
 

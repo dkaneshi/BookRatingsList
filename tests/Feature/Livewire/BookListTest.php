@@ -45,9 +45,16 @@ it('filters books by title when search term is provided', function () {
 });
 
 it('filters books by author when search term is provided', function () {
+    // Create authors
+    $johnDoe = App\Models\Author::factory()->create(['name' => 'John Doe']);
+    $janeSmith = App\Models\Author::factory()->create(['name' => 'Jane Smith']);
+
     // Create books with specific authors
-    $matchingBook = Book::factory()->create(['author' => 'John Doe']);
-    $nonMatchingBook = Book::factory()->create(['author' => 'Jane Smith']);
+    $matchingBook = Book::factory()->create();
+    $matchingBook->authors()->attach($johnDoe);
+
+    $nonMatchingBook = Book::factory()->create();
+    $nonMatchingBook->authors()->attach($janeSmith);
 
     // Test the component filters books by author
     Livewire::test(BookList::class)

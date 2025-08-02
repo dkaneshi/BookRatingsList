@@ -15,11 +15,17 @@
 
             <div class="mb-4">
                 <flux:field>
-                    <flux:label for="author">Author</flux:label>
+                    <flux:label for="authors">Authors</flux:label>
 
-                    <flux:input wire:model="form.author" id="author"/>
+                    <flux:select multiple wire:model="form.authors" id="authors" size="5">
+                        @foreach($authors as $author)
+                            <flux:option value="{{ $author->id }}">{{ $author->name }}</flux:option>
+                        @endforeach
+                    </flux:select>
+                    
+                    <flux:description>Hold Ctrl/Cmd to select multiple authors</flux:description>
 
-                    <flux:error name="form.author"/>
+                    <flux:error name="form.authors"/>
                 </flux:field>
             </div>
 

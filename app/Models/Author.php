@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-final class Book extends Model
+final class Author extends Model
 {
-    /** @use HasFactory<\Database\Factories\BookFactory> */
+    /** @use HasFactory<\Database\Factories\AuthorFactory> */
     use HasFactory;
 
     protected $guarded = [];
 
-    public function authors(): BelongsToMany
+    public function books(): BelongsToMany
     {
-        return $this->belongsToMany(Author::class)
+        return $this->belongsToMany(Book::class)
             ->withTimestamps()
-            ->orderBy('name');
+            ->orderBy('published_at', 'desc');
     }
 }

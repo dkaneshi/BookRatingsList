@@ -6,6 +6,7 @@ namespace App\Livewire;
 
 use App\Livewire\Actions\UpdateBookAction;
 use App\Livewire\Forms\BookForm;
+use App\Models\Author;
 use App\Models\Book;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -19,8 +20,9 @@ final class EditBook extends Component
 
     public function mount(Book $book): void
     {
+        $this->book = $book;
         $this->form->title = $book->title;
-        $this->form->author = $book->author;
+        $this->form->authors = $book->authors->pluck('id')->toArray();
         $this->form->rating = $book->rating;
     }
 
@@ -37,6 +39,8 @@ final class EditBook extends Component
     #[Layout('components.layouts.booklist')]
     public function render()
     {
-        return view('livewire.edit-book');
+        return view('livewire.edit-book', [
+            'authors' => Author::orderBy('name')->get(),
+        ]);
     }
 }

@@ -12,8 +12,9 @@ final class BookForm extends Form
     #[Validate('required|string|min:3|max:255', onUpdate: false)]
     public string $title = '';
 
-    #[Validate('required|string|min:3|max:255', onUpdate: false)]
-    public string $author = '';
+    #[Validate('required|array|min:1', onUpdate: false)]
+    #[Validate('authors.*', 'exists:authors,id', onUpdate: false)]
+    public array $authors = [];
 
     #[Validate('required|integer|min:1|max:10', onUpdate: false)]
     public int $rating;

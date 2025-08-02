@@ -4,34 +4,31 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use App\Livewire\Actions\InsertBookAction;
-use App\Livewire\Forms\BookForm;
-use App\Models\Author;
+use App\Livewire\Actions\InsertAuthorAction;
+use App\Livewire\Forms\AuthorForm;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-final class CreateBook extends Component
+final class CreateAuthor extends Component
 {
-    public BookForm $form;
+    public AuthorForm $form;
 
-    public function save(InsertBookAction $action): void
+    public function save(InsertAuthorAction $action): void
     {
         $this->validate();
 
         $action->handle($this->form);
 
-        $this->redirect('/books', navigate: true);
+        $this->redirect('/authors', navigate: true);
     }
 
-    #[Title('Add a Book')]
+    #[Title('Add an Author')]
     #[Layout('components.layouts.booklist')]
     public function render(): View|Factory|\Illuminate\View\View
     {
-        return view('livewire.create-book', [
-            'authors' => Author::orderBy('name')->get(),
-        ]);
+        return view('livewire.create-author');
     }
 }
