@@ -19,7 +19,7 @@
 
                     <flux:select multiple wire:model="form.authors" id="authors" size="5">
                         @foreach($authors as $author)
-                            <flux:option value="{{ $author->id }}">{{ $author->name }}</flux:option>
+                            <flux:select.option value="{{ $author->id }}">{{ $author->name }}</flux:select.option>
                         @endforeach
                     </flux:select>
                     
