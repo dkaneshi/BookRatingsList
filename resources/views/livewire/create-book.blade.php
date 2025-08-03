@@ -17,12 +17,12 @@
                 <flux:field>
                     <flux:label for="authors">Authors</flux:label>
 
-                    <flux:select multiple wire:model="form.authors" id="authors" size="5">
+                    <flux:select variant="listbox" multiple wire:model="form.authors" id="authors" size="10" selected-suffix="authors selected">
                         @foreach($authors as $author)
                             <flux:select.option value="{{ $author->id }}">{{ $author->name }}</flux:select.option>
                         @endforeach
                     </flux:select>
-                    
+
                     <flux:description>Hold Ctrl/Cmd to select multiple authors</flux:description>
 
                     <flux:error name="form.authors"/>
